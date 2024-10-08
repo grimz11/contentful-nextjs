@@ -1,6 +1,7 @@
+import { createClient } from 'contentful';
+
 import { ContentEntry, ContentType } from '@/lib/types';
 
-import { createClient } from 'contentful';
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,
@@ -10,7 +11,6 @@ const client = createClient({
 
 export async function getEntries(contentType: ContentType, page = 1, limit = 10): Promise<{ items: ContentEntry[], total: number }> {
   const skip = (page - 1) * limit;
-  console.log({contentType, skip, limit})
   const response = await client.getEntries({
     content_type: contentType,
     skip,
