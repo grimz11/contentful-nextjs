@@ -24,12 +24,12 @@ const ContentList: React.FC<ContentListProps> = ({ items }) => {
 	const renderBook = (book: BookEntry) => (
 		<>
 			<h2 className='text-xl font-semibold text-orange-600'>
-				{book.fields.title}
+				{book.fields?.title}
 			</h2>
-			<p className='text-sm text-gray-600'>By: {book.fields.authors?.join(', ') || ''}</p>
+			<p className='text-sm text-gray-600'>By: {book.fields.authors?.join(', ')}</p>
 			<p className='text-sm text-gray-600'>Genres: {book.fields.genres?.join(', ')}</p>
 			<p className='text-sm text-gray-600'>
-				Published: {new Date(book.fields.publicationDate).toLocaleDateString()}
+				Published: {new Date(book.fields?.publicationDate)?.toLocaleDateString()}
 			</p>
 		</>
 	);
@@ -37,14 +37,14 @@ const ContentList: React.FC<ContentListProps> = ({ items }) => {
 	const renderMovie = (movie: MovieEntry) => (
 		<>
 			<h2 className='text-xl font-semibold text-orange-600'>
-				{movie.fields.title}
+				{movie.fields?.title}
 			</h2>
 			<p className='text-sm text-gray-600'>Directors: {movie.fields.directors?.join(', ')}</p>
 			<p className='text-sm text-gray-600'>
 				Actors: {movie.fields.actors?.join(', ')}
 			</p>
 			<p className='text-sm text-gray-600'>
-				Released: {new Date(movie.fields.releaseDate).toLocaleDateString()}
+				Released: {new Date(movie.fields?.releaseDate)?.toLocaleDateString()}
 			</p>
 		</>
 	);
@@ -52,14 +52,14 @@ const ContentList: React.FC<ContentListProps> = ({ items }) => {
 	const renderArticle = (article: ArticleEntry) => (
 		<>
 			<h2 className='text-xl font-semibold text-orange-600'>
-				{article.fields.title}
+				{article.fields?.title}
 			</h2>
 			<p className='text-sm text-gray-600'>By: {article.fields.authors?.join(', ')}</p>
 			<p className='text-sm text-gray-600'>
 				Published:{' '}
-				{new Date(article.fields.publicationDate).toLocaleDateString()}
+				{new Date(article.fields?.publicationDate)?.toLocaleDateString()}
 			</p>
-			<p className='mt-2'>{article.fields?.summaries?.join(', ')}</p>
+			<p className='mt-2'>{article.fields.summaries?.join(', ')}</p>
 		</>
 	);
 
